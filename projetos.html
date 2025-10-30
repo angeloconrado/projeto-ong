@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Projetos - Frente Solidária</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header>
         <h1>Frente Solidária</h1>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-toggle-label">
+            <span></span> <span></span>
+            <span></span>
+        </label>
         
         <nav>
             <ul>
@@ -24,17 +31,20 @@
         <section>
             <h2>Nossas Frentes de Atuação</h2>
             
-            <article>
-                <h3>Mutirão Prato Cheio</h3>
-                <img src="imagens/projeto-exemplo.jpg" alt="Voluntários montando cestas básicas para distribuição" style="max-width: 100%; height: auto;">
-                <p>Arrecadamos e distribuímos mensalmente centenas de cestas básicas para famílias cadastradas em comunidades carentes. Nosso foco é a nutrição e a segurança alimentar.</p>
-            </article>
+            <div class="cards-container">
+                <article>
+                    <h3>Mutirão Prato Cheio</h3>
+                    <img src="imagens/projeto-exemplo.jpg" alt="Voluntários montando cestas básicas para distribuição" style="max-width: 100%; height: auto;">
+                    <p>Arrecadamos e distribuímos mensalmente centenas de cestas básicas para famílias cadastradas em comunidades carentes. Nosso foco é a nutrição e a segurança alimentar.</p>
+                </article>
+                
+                <article>
+                    <h3>Operação Água Limpa</h3>
+                    <img src="imagens/voluntarios.jpg" alt="Distribuição de galões de água potável em uma comunidade" style="max-width: 100%; height: auto;">
+                    <p>Levamos água potável para regiões afetadas pela seca em Minas Gerais. Cada galão de água é uma chance de saúde e esperança para quem mais precisa.</p>
+                </article>
+            </div>
             
-            <article>
-                <h3>Operação Água Limpa</h3>
-                <img src="imagens/voluntarios.jpg" alt="Distribuição de galões de água potável em uma comunidade" style="max-width: 100%; height: auto;">
-                <p>Levamos água potável para regiões afetadas pela seca em Minas Gerais. Cada galão de água é uma chance de saúde e esperança para quem mais precisa.</p>
-            </article>
         </section>
 
         <section>
