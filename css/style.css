@@ -1,58 +1,51 @@
-/* ---------------------------------- */
-/* 1. RESET BÁSICO E BOX-SIZING       */
-/* ---------------------------------- */
+/* ------------------------------- */
+/* 1. Reset Básico e Variáveis     */
+/* ------------------------------- */
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Faz o padding não afetar a largura total */
+    box-sizing: border-box;
 }
 
-/* ---------------------------------- */
-/* 2. SISTEMA DE DESIGN (VARIÁVEIS)   */
-/* [Requisito da Entrega II]          */
-/* ---------------------------------- */
 :root {
-    /* Paleta de Cores (8+ cores) */
-    /* Cores Primárias (Ex: Azul para confiança) */
+    /* Cores */
     --cor-primaria: #005A9C;
     --cor-primaria-escura: #003D6B;
     --cor-primaria-clara: #E6F0F6;
-
-    /* Cores Secundárias/Ação (Ex: Laranja para 'call to action') */
     --cor-secundaria: #FF6600;
     --cor-secundaria-escura: #CC5200;
-
-    /* Cores Neutras (Texto, Fundo) */
     --cor-texto-principal: #333333;
     --cor-texto-secundario: #555555;
     --cor-fundo: #FFFFFF;
     --cor-bordas: #DDDDDD;
 
-    /* Tipografia Hierárquica (5+ tamanhos) */
-    --fonte-principal: 'Arial', sans-serif; /* (Podemos mudar depois) */
-    --tamanho-titulo-h1: 2.5rem;  /* 40px */
-    --tamanho-titulo-h2: 2rem;    /* 32px */
-    --tamanho-titulo-h3: 1.5rem;  /* 24px */
-    --tamanho-texto-normal: 1rem; /* 16px (base) */
-    --tamanho-texto-pequeno: 0.875rem; /* 14px */
+    /* Fontes */
+    --fonte-principal: 'Arial', sans-serif;
+    --tamanho-titulo-h1: 2.5rem;
+    --tamanho-titulo-h2: 2rem;
+    --tamanho-titulo-h3: 1.5rem;
+    --tamanho-texto-normal: 1rem;
+    --tamanho-texto-pequeno: 0.875rem;
     
-    /* Sistema de Espaçamento Modular */
-    --espaco-pp: 8px;   /* Pequeno (padding pequeno) */
-    --espaco-p: 16px;   /* Padrão (padding de componente) */
-    --espaco-m: 24px;   /* Médio */
-    --espaco-g: 32px;   /* Grande (separação de seções) */
-    --espaco-gg: 48px;  /* Extra Grande */
-    --espaco-xg: 64px;  /* Enorme */
+    /* Espaçamento */
+    --espaco-pp: 8px;
+    --espaco-p: 16px;
+    --espaco-m: 24px;
+    --espaco-g: 32px;
+    --espaco-gg: 48px;
+    --espaco-xg: 64px;
 }
 
-/* ---------------------------------- */
-/* 3. ESTILOS GLOBAIS (BASE)          */
-/* ---------------------------------- */
+/* ------------------------------- */
+/* 2. Estilos Globais (Base)       */
+/* ------------------------------- */
+
 body {
     font-family: var(--fonte-principal);
     color: var(--cor-texto-principal);
     background-color: var(--cor-fundo);
-    line-height: 1.6; /* Melhora a legibilidade */
+    line-height: 1.6;
 }
 
 h1, h2, h3 {
@@ -79,48 +72,260 @@ a:hover {
     color: var(--cor-secundaria-escura);
     text-decoration: underline;
 }
-/* ---------------------------------- */
-/* 4. LEIAUTE PRINCIPAL (HEADER/NAV)  */
-/* [Requisito da Entrega II]          */
-/* ---------------------------------- */
 
-/* * Usamos Flexbox para alinhar o <h1> e a <nav> 
- * na mesma linha (row).
-*/
+/* ------------------------------- */
+/* 3. Leiaute Principal (Site)     */
+/* ------------------------------- */
+
 header {
     display: flex;
-    justify-content: space-between; /* H1 na esquerda, Nav na direita */
-    align-items: center; /* Alinha verticalmente no centro */
-    padding: var(--espaco-p) var(--espaco-g); /* Padding vertical e horizontal */
-    background-color: var(--cor-primaria-clara); /* Um fundo azul claro */
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--espaco-p) var(--espaco-g);
+    background-color: var(--cor-primaria-clara);
     border-bottom: 2px solid var(--cor-bordas);
 }
 
-/* * A <nav> também usa Flexbox para alinhar
- * os itens do menu (o <ul>)
-*/
+main {
+    max-width: 960px; 
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--espaco-g) var(--espaco-p);
+}
+
+section {
+    margin-bottom: var(--espaco-g);
+}
+
+footer {
+    background-color: var(--cor-primaria-escura);
+    color: var(--cor-primaria-clara);
+    padding: var(--espaco-g) var(--espaco-p);
+    text-align: center;
+}
+
+footer p {
+    font-size: var(--tamanho-texto-pequeno);
+    margin-bottom: var(--espaco-pp);
+    color: #FFFFFF;
+}
+
+footer p strong {
+    font-size: var(--tamanho-texto-normal);
+    color: #FFFFFF;
+}
+
+/* ------------------------------- */
+/* 4. Navegação (Header)           */
+/* ------------------------------- */
+
 header nav ul {
     display: flex;
-    list-style: none; /* Remove as "bolinhas" da lista */
+    list-style: none;
 }
 
 header nav ul li {
-    margin-left: var(--espaco-m); /* Espaçamento entre os links */
+    margin-left: var(--espaco-m);
 }
 
-/* * Estilo dos links do menu
-*/
 header nav ul li a {
     color: var(--cor-primaria-escura);
     font-size: 1.1rem;
     font-weight: bold;
     text-decoration: none;
     padding: var(--espaco-pp);
-    border-radius: 4px; /* Cantos levemente arredondados */
-    transition: background-color 0.3s; /* Efeito suave */
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 header nav ul li a:hover {
     background-color: var(--cor-fundo);
     color: var(--cor-secundaria-escura);
+}
+
+/* ------------------------------- */
+/* 5. Menu Responsivo (Hambúrguer) */
+/* ------------------------------- */
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-toggle-label {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.menu-toggle-label span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--cor-primaria-escura);
+    border-radius: 2px;
+}
+
+/* ------------------------------- */
+/* 6. Media Query (Telas Móveis)   */
+/* ------------------------------- */
+
+@media (max-width: 768px) {
+    
+    .menu-toggle-label {
+        display: flex;
+    }
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: 80px; 
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-fundo);
+        border-bottom: 1px solid var(--cor-bordas);
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: var(--espaco-p);
+        border-bottom: 1px solid var(--cor-bordas);
+    }
+    header nav ul li a:hover {
+        background-color: var(--cor-primaria-clara);
+    }
+
+    .menu-toggle:checked + .menu-toggle-label + nav {
+        display: block;
+    }
+}
+/* ------------------------------- */
+/* 7. Componente: Cards de Projeto */
+/* ------------------------------- */
+
+.cards-container {
+    display: grid;
+    /* Cria 2 colunas de tamanho igual (1fr) */
+    grid-template-columns: 1fr 1fr; 
+    gap: var(--espaco-m); /* Espaçamento entre os cards */
+}
+
+/* Estilo individual de cada card (o <article>) */
+.cards-container article {
+    background-color: var(--cor-primaria-clara);
+    border: 1px solid var(--cor-bordas);
+    border-radius: 8px;
+    padding: var(--espaco-p);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* Ajusta a imagem dentro do card */
+.cards-container article img {
+    border-radius: 4px;
+    margin-bottom: var(--espaco-p);
+}
+
+/* ------------------------------- */
+/* 8. Ajuste Responsivo (Cards)    */
+/* ------------------------------- */
+
+/* Em telas menores que 768px... */
+@media (max-width: 768px) {
+    
+    /* ...muda o grid para apenas 1 coluna */
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* ------------------------------- */
+/* 9. Componente: Formulário       */
+/* ------------------------------- */
+
+form {
+    background-color: var(--cor-primaria-clara);
+    border: 1px solid var(--cor-bordas);
+    border-radius: 8px;
+    padding: var(--espaco-m);
+}
+
+fieldset {
+    border: none; /* Remove a borda padrão */
+    margin-bottom: var(--espaco-m);
+}
+
+legend {
+    font-size: var(--tamanho-titulo-h3);
+    font-weight: bold;
+    color: var(--cor-primaria-escura);
+    margin-bottom: var(--espaco-p);
+}
+
+/* Organiza o par label/input */
+form div {
+    margin-bottom: var(--espaco-p);
+}
+
+label {
+    display: block; /* Faz o label ocupar uma linha */
+    font-weight: bold;
+    margin-bottom: var(--espaco-pp);
+}
+
+/* Estilo para todos os inputs de texto, email, date, etc. */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+select {
+    width: 100%; /* Ocupa 100% da largura disponível */
+    padding: var(--espaco-pp) var(--espaco-p);
+    border: 1px solid var(--cor-bordas);
+    border-radius: 4px;
+    font-size: var(--tamanho-texto-normal);
+    font-family: var(--fonte-principal);
+}
+
+/* Estilo dos Botões */
+button[type="submit"],
+button[type="reset"] {
+    font-size: var(--tamanho-texto-normal);
+    font-weight: bold;
+    padding: var(--espaco-p) var(--espaco-m);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Botão Principal (Cadastrar) */
+button[type="submit"] {
+    background-color: var(--cor-secundaria);
+    color: white;
+    margin-right: var(--espaco-p);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--cor-secundaria-escura);
+}
+
+/* Botão Secundário (Limpar) */
+button[type="reset"] {
+    background-color: var(--cor-bordas);
+    color: var(--cor-texto-secundario);
+}
+
+button[type="reset"]:hover {
+    background-color: #bbbbbb;
 }
