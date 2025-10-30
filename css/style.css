@@ -207,9 +207,10 @@ header nav ul li a:hover {
         background-color: var(--cor-primaria-clara);
     }
 
-    .menu-toggle:checked + .menu-toggle-label + nav {
-        display: block;
-    }
+   /* Mostra o menu quando o JS adiciona a classe 'menu-ativo' */
+header nav.menu-ativo {
+    display: block;
+}
 }
 /* ------------------------------- */
 /* 7. Componente: Cards de Projeto */
@@ -328,4 +329,120 @@ button[type="reset"] {
 
 button[type="reset"]:hover {
     background-color: #bbbbbb;
+}
+/* ------------------------------- */
+/* 10. Componente: Voltar ao Topo  */
+/* ------------------------------- */
+
+.btn-voltar-ao-topo {
+    /* 1. Estilo */
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica fixo na tela */
+    bottom: var(--espaco-m);
+    right: var(--espaco-m);
+    z-index: 99; /* Fica acima de outros elementos */
+    
+    background-color: var(--cor-secundaria);
+    color: white;
+    font-size: 1.5rem; /* Tamanho da seta */
+    font-weight: bold;
+    text-decoration: none;
+    
+    width: 50px;
+    height: 50px;
+    line-height: 50px; /* Centraliza a seta verticalmente */
+    text-align: center; /* Centraliza a seta horizontalmente */
+    border-radius: 50%; /* Deixa o botão redondo */
+    
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.btn-voltar-ao-topo:hover {
+    background-color: var(--cor-secundaria-escura);
+    color: white; /* Garante que a cor não mude */
+}
+
+/* 2. Classe que o JS vai adicionar */
+.btn-voltar-ao-topo.visivel {
+    display: block;
+}
+/* ------------------------------- */
+/* 11. Componente: Modal de Doação */
+/* ------------------------------- */
+
+/* Estilo do botão "Quero Doar" */
+.btn-doacao {
+    font-size: var(--tamanho-texto-normal);
+    font-weight: bold;
+    padding: var(--espaco-p) var(--espaco-m);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: var(--cor-secundaria);
+    color: white;
+    margin-top: var(--espaco-p);
+}
+
+.btn-doacao:hover {
+    background-color: var(--cor-secundaria-escura);
+}
+
+/* O fundo escuro do modal (backdrop) */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 100; /* Fica acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Fundo preto semi-transparente */
+}
+
+/* A caixa do modal */
+.modal-conteudo {
+    background-color: var(--cor-fundo);
+    margin: 15% auto; /* 15% do topo e centralizado */
+    padding: var(--espaco-g);
+    border: 1px solid var(--cor-bordas);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px; /* Largura máxima */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* O botão de fechar (X) */
+.modal-fechar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: var(--espaco-pp);
+    right: var(--espaco-m);
+}
+
+.modal-fechar:hover,
+.modal-fechar:focus {
+    color: var(--cor-texto-principal);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.chave-pix {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--cor-primaria-escura);
+    background-color: var(--cor-primaria-clara);
+    padding: var(--espaco-p);
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Classe que o JS vai adicionar */
+.modal.visivel {
+    display: block;
 }

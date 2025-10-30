@@ -29,23 +29,12 @@
 
     <main>
         <section>
-            <h2>Nossas Frentes de Atuação</h2>
-            
-            <div class="cards-container">
-                <article>
-                    <h3>Mutirão Prato Cheio</h3>
-                    <img src="imagens/projeto-exemplo.jpg" alt="Voluntários montando cestas básicas para distribuição" style="max-width: 100%; height: auto;">
-                    <p>Arrecadamos e distribuímos mensalmente centenas de cestas básicas para famílias cadastradas em comunidades carentes. Nosso foco é a nutrição e a segurança alimentar.</p>
-                </article>
-                
-                <article>
-                    <h3>Operação Água Limpa</h3>
-                    <img src="imagens/voluntarios.jpg" alt="Distribuição de galões de água potável em uma comunidade" style="max-width: 100%; height: auto;">
-                    <p>Levamos água potável para regiões afetadas pela seca em Minas Gerais. Cada galão de água é uma chance de saúde e esperança para quem mais precisa.</p>
-                </article>
-            </div>
-            
-        </section>
+    <h2>Nossas Frentes de Atuação</h2>
+
+    <div class="cards-container">
+        </div>
+
+</section>
 
         <section>
             <h2>Como Você Pode Ajudar</h2>
@@ -54,18 +43,30 @@
                 <p>O seu tempo pode salvar vidas. Precisamos de voluntários para coleta, organização de estoques e distribuição de alimentos e água. <a href="cadastro.html">Cadastre-se para ser um voluntário!</a></p>
             </article>
             <article>
-                <h3>Faça uma Doação</h3>
-                <p>Sua contribuição financeira nos permite comprar alimentos não perecíveis em atacado e financiar caminhões-pipa. Qualquer valor faz a diferença.</p>
-            </article>
+            <h3>Faça uma Doação</h3>
+            <p>Sua contribuição financeira nos permite comprar alimentos não perecíveis em atacado e financiar caminhões-pipa. Qualquer valor faz a diferença.</p>
+            <button id="btnAbrirModalDoacao" class="btn-doacao">Quero Doar Agora</button>
+        </article>
         </section>
-    </main>
+    </section> <div id="modalDoacao" class="modal">
+    <div class="modal-conteudo">
+        <span class="modal-fechar" id="btnFecharModal">&times;</span>
+        <h2>Faça sua Doação</h2>
+        <p>Sua ajuda é essencial. Use a nossa chave PIX para contribuir:</p>
+        <p class="chave-pix">contato@frentesolidaria.org</p>
+        <p>(Chave PIX fictícia)</p>
+    </div>
+</div>
 
+</main>
+<a href="#" id="btnVoltarAoTopo" class="btn-voltar-ao-topo" title="Voltar ao topo">↑</a>
     <footer>
         <p><strong>Frente Solidária</strong></p>
         <p>Rua da Esperança, 123 - Centro, Governador Valadares - MG</p>
         <p>Telefone: (33) 91234-5678 | E-mail: contato@frentesolidaria.org</p>
         <p>&copy; 2025 Frente Solidária. Todos os direitos reservados.</p>
     </footer>
-
+<script src="js/main.js"></script>
+<script src="js/projetos.js"></script>
 </body>
 </html>
