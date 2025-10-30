@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "titulo": "Mutirão Prato Cheio",
+    "imagem": "imagens/projeto-exemplo.jpg",
+    "alt": "Voluntários montando cestas básicas para distribuição",
+    "descricao": "Arrecadamos e distribuímos mensalmente centenas de cestas básicas para famílias cadastradas em comunidades carentes. Nosso foco é a nutrição e a segurança alimentar."
+  },
+  {
+    "id": 2,
+    "titulo": "Operação Água Limpa",
+    "imagem": "imagens/voluntarios.jpg",
+    "alt": "Distribuição de galões de água potável em uma comunidade",
+    "descricao": "Levamos água potável para regiões afetadas pela seca em Minas Gerais. Cada galão de água é uma chance de saúde e esperança para quem mais precisa."
+  }
+]
