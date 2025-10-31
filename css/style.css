@@ -38,6 +38,20 @@
 }
 
 /* ------------------------------- */
+/* 1.1 Variáveis do Modo Escuro    */
+/* ------------------------------- */
+
+body.dark-mode {
+    --cor-primaria: #003D6B;
+    --cor-primaria-escura: #E6F0F6;
+    --cor-primaria-clara: #002A4A;
+    --cor-texto-principal: #E0E0E0;
+    --cor-texto-secundario: #B0B0B0;
+    --cor-fundo: #121212;
+    --cor-bordas: #444444;
+}
+
+/* ------------------------------- */
 /* 2. Estilos Globais (Base)       */
 /* ------------------------------- */
 
@@ -74,16 +88,42 @@ a:hover {
 }
 
 /* ------------------------------- */
+/* 2.1 Acessibilidade (Foco)     */
+/* ------------------------------- */
+
+:focus-visible {
+    outline: 3px solid var(--cor-primaria-escura);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px var(--cor-secundaria-clara);
+}
+
+body.dark-mode :focus-visible {
+    outline-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.theme-input-hidden:focus-visible + .theme-switch .slider {
+    outline: 3px solid var(--cor-primaria-escura);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px var(--cor-secundaria-clara);
+}
+
+body.dark-mode .theme-input-hidden:focus-visible + .theme-switch .slider {
+    outline-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* ------------------------------- */
 /* 3. Leiaute Principal (Site)     */
 /* ------------------------------- */
 
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: var(--espaco-p) var(--espaco-g);
     background-color: var(--cor-primaria-clara);
     border-bottom: 2px solid var(--cor-bordas);
+    gap: var(--espaco-p);
 }
 
 main {
@@ -119,9 +159,14 @@ footer p strong {
 /* 4. Navegação (Header)           */
 /* ------------------------------- */
 
-header nav ul {
+header nav {
+    margin-left: auto;
     display: flex;
     list-style: none;
+}
+
+header nav ul {
+    display: flex;
 }
 
 header nav ul li {
@@ -176,9 +221,11 @@ header nav ul li a:hover {
     
     .menu-toggle-label {
         display: flex;
+        margin-left: auto;
     }
 
     header nav {
+        margin-left: 0;
         display: none;
         position: absolute;
         top: 80px; 
@@ -207,10 +254,9 @@ header nav ul li a:hover {
         background-color: var(--cor-primaria-clara);
     }
 
-   /* Mostra o menu quando o JS adiciona a classe 'menu-ativo' */
-header nav.menu-ativo {
-    display: block;
-}
+    header nav.menu-ativo {
+        display: block;
+    }
 }
 /* ------------------------------- */
 /* 7. Componente: Cards de Projeto */
@@ -218,21 +264,18 @@ header nav.menu-ativo {
 
 .cards-container {
     display: grid;
-    /* Cria 2 colunas de tamanho igual (1fr) */
     grid-template-columns: 1fr 1fr; 
-    gap: var(--espaco-m); /* Espaçamento entre os cards */
+    gap: var(--espaco-m);
 }
 
-/* Estilo individual de cada card (o <article>) */
 .cards-container article {
     background-color: var(--cor-primaria-clara);
     border: 1px solid var(--cor-bordas);
     border-radius: 8px;
     padding: var(--espaco-p);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Ajusta a imagem dentro do card */
 .cards-container article img {
     border-radius: 4px;
     margin-bottom: var(--espaco-p);
@@ -242,10 +285,8 @@ header nav.menu-ativo {
 /* 8. Ajuste Responsivo (Cards)    */
 /* ------------------------------- */
 
-/* Em telas menores que 768px... */
 @media (max-width: 768px) {
     
-    /* ...muda o grid para apenas 1 coluna */
     .cards-container {
         grid-template-columns: 1fr;
     }
@@ -262,7 +303,7 @@ form {
 }
 
 fieldset {
-    border: none; /* Remove a borda padrão */
+    border: none;
     margin-bottom: var(--espaco-m);
 }
 
@@ -273,24 +314,22 @@ legend {
     margin-bottom: var(--espaco-p);
 }
 
-/* Organiza o par label/input */
 form div {
     margin-bottom: var(--espaco-p);
 }
 
 label {
-    display: block; /* Faz o label ocupar uma linha */
+    display: block;
     font-weight: bold;
     margin-bottom: var(--espaco-pp);
 }
 
-/* Estilo para todos os inputs de texto, email, date, etc. */
 input[type="text"],
 input[type="email"],
 input[type="date"],
 input[type="tel"],
 select {
-    width: 100%; /* Ocupa 100% da largura disponível */
+    width: 100%;
     padding: var(--espaco-pp) var(--espaco-p);
     border: 1px solid var(--cor-bordas);
     border-radius: 4px;
@@ -298,7 +337,6 @@ select {
     font-family: var(--fonte-principal);
 }
 
-/* Estilo dos Botões */
 button[type="submit"],
 button[type="reset"] {
     font-size: var(--tamanho-texto-normal);
@@ -310,7 +348,6 @@ button[type="reset"] {
     transition: background-color 0.3s;
 }
 
-/* Botão Principal (Cadastrar) */
 button[type="submit"] {
     background-color: var(--cor-secundaria);
     color: white;
@@ -321,7 +358,6 @@ button[type="submit"]:hover {
     background-color: var(--cor-secundaria-escura);
 }
 
-/* Botão Secundário (Limpar) */
 button[type="reset"] {
     background-color: var(--cor-bordas);
     color: var(--cor-texto-secundario);
@@ -335,34 +371,32 @@ button[type="reset"]:hover {
 /* ------------------------------- */
 
 .btn-voltar-ao-topo {
-    /* 1. Estilo */
-    display: none; /* Escondido por padrão */
-    position: fixed; /* Fica fixo na tela */
+    display: none;
+    position: fixed;
     bottom: var(--espaco-m);
     right: var(--espaco-m);
-    z-index: 99; /* Fica acima de outros elementos */
+    z-index: 99;
     
     background-color: var(--cor-secundaria);
     color: white;
-    font-size: 1.5rem; /* Tamanho da seta */
+    font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
     
     width: 50px;
     height: 50px;
-    line-height: 50px; /* Centraliza a seta verticalmente */
-    text-align: center; /* Centraliza a seta horizontalmente */
-    border-radius: 50%; /* Deixa o botão redondo */
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
     
     transition: background-color 0.3s, opacity 0.3s;
 }
 
 .btn-voltar-ao-topo:hover {
     background-color: var(--cor-secundaria-escura);
-    color: white; /* Garante que a cor não mude */
+    color: white;
 }
 
-/* 2. Classe que o JS vai adicionar */
 .btn-voltar-ao-topo.visivel {
     display: block;
 }
@@ -370,7 +404,6 @@ button[type="reset"]:hover {
 /* 11. Componente: Modal de Doação */
 /* ------------------------------- */
 
-/* Estilo do botão "Quero Doar" */
 .btn-doacao {
     font-size: var(--tamanho-texto-normal);
     font-weight: bold;
@@ -388,33 +421,30 @@ button[type="reset"]:hover {
     background-color: var(--cor-secundaria-escura);
 }
 
-/* O fundo escuro do modal (backdrop) */
 .modal {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
-    z-index: 100; /* Fica acima de tudo */
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.6); /* Fundo preto semi-transparente */
+    background-color: rgba(0,0,0,0.6);
 }
 
-/* A caixa do modal */
 .modal-conteudo {
     background-color: var(--cor-fundo);
-    margin: 15% auto; /* 15% do topo e centralizado */
+    margin: 15% auto;
     padding: var(--espaco-g);
     border: 1px solid var(--cor-bordas);
     border-radius: 8px;
     width: 80%;
-    max-width: 500px; /* Largura máxima */
+    max-width: 500px;
     position: relative;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* O botão de fechar (X) */
 .modal-fechar {
     color: #aaa;
     float: right;
@@ -423,13 +453,13 @@ button[type="reset"]:hover {
     position: absolute;
     top: var(--espaco-pp);
     right: var(--espaco-m);
+    cursor: pointer;
 }
 
 .modal-fechar:hover,
 .modal-fechar:focus {
     color: var(--cor-texto-principal);
     text-decoration: none;
-    cursor: pointer;
 }
 
 .chave-pix {
@@ -442,7 +472,129 @@ button[type="reset"]:hover {
     text-align: center;
 }
 
-/* Classe que o JS vai adicionar */
 .modal.visivel {
     display: block;
+}
+/* ------------------------------- */
+/* 12. Componente: Interruptor Tema */
+/* ------------------------------- */
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: var(--espaco-p);
+}
+
+.theme-switch-wrapper .icon-sol,
+.theme-switch-wrapper .icon-lua {
+    font-size: 1.2rem;
+    transition: opacity 0.4s, color 0.4s;
+}
+
+.theme-switch-wrapper .icon-sol {
+    margin-right: 8px;
+    color: var(--cor-texto-principal);
+    opacity: 1;
+}
+
+.theme-switch-wrapper .icon-lua {
+    margin-left: 8px;
+    color: var(--cor-secundaria);
+    opacity: 0.3;
+}
+
+body.dark-mode .theme-switch-wrapper .icon-sol {
+    color: var(--cor-texto-principal); 
+    opacity: 0.3;
+}
+
+body.dark-mode .theme-switch-wrapper .icon-lua {
+    opacity: 1;
+}
+
+.theme-input-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    border: 0;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+.theme-input-hidden:checked + .theme-switch .slider {
+    background-color: var(--cor-secundaria);
+}
+
+.theme-input-hidden:checked + .theme-switch .slider:before {
+    transform: translateX(26px);
+}
+
+.theme-input-hidden:focus-visible + .theme-switch .slider {
+    outline: 3px solid var(--cor-primaria-escura);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px var(--cor-secundaria-clara);
+}
+
+body.dark-mode .theme-input-hidden:focus-visible + .theme-switch .slider {
+    outline-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+body.dark-mode header {
+    background-color: var(--cor-primaria-clara);
+    border-bottom: 2px solid var(--cor-bordas);
+}
+
+body.dark-mode .cards-container article {
+    background-color: var(--cor-primaria-clara);
+    border: 1px solid var(--cor-bordas);
+}
+
+body.dark-mode form {
+    background-color: var(--cor-primaria-clara);
+    border: 1px solid var(--cor-bordas);
+}
+
+body.dark-mode .modal-conteudo {
+     background-color: var(--cor-fundo);
+     border: 1px solid var(--cor-bordas);
 }
