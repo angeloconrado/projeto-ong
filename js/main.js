@@ -2,7 +2,6 @@
 /* 1. Funções de Máscara (Entrega I) */
 /* ------------------------------- */
 
-/* Aguarda o documento carregar */
 document.addEventListener('DOMContentLoaded', function() {
     
     const inputCPF = document.getElementById('cpf');
@@ -12,16 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
     /* Máscara de CPF: XXX.XXX.XXX-XX */
     if (inputCPF) {
         inputCPF.addEventListener('input', function(e) {
-            
-            // 1. Limpa tudo que não é dígito E limita a 11 dígitos
             let value = e.target.value.replace(/\D/g, '').slice(0, 11);
-            
-            // 2. Aplica a formatação progressivamente
-            value = value.replace(/(\d{3})(\d)/, '$1.$2'); // 123.456...
-            value = value.replace(/(\d{3})(\d)/, '$1.$2'); // 123.456.789...
-            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // 123.456.789-00
-            
-            // 3. Atualiza o valor no campo
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
             e.target.value = value;
         });
     }
@@ -60,32 +53,24 @@ document.addEventListener('DOMContentLoaded', function() {
     /* 2. Menu Responsivo (Entrega III)*/
     /* ------------------------------- */
     
-    // Seleciona os elementos do menu
     const menuToggleButton = document.querySelector('.menu-toggle-label');
     const nav = document.querySelector('header nav');
 
-    // 1. Adiciona um 'escutador de evento' (click) no botão
     if (menuToggleButton) {
         menuToggleButton.addEventListener('click', function() {
-            
-            // 2. Adiciona ou remove a classe 'menu-ativo' na navegação
             nav.classList.toggle('menu-ativo');
-            
-            // 3. Adiciona uma classe no botão (para mudar o ícone para 'X' no futuro)
             menuToggleButton.classList.toggle('menu-ativo');
         });
     }
 
-/* ------------------------------- */
+    /* ------------------------------- */
     /* 3. Botão Voltar ao Topo         */
     /* ------------------------------- */
     
     const btnTopo = document.getElementById('btnVoltarAoTopo');
 
     if (btnTopo) {
-        // 1. Mostrar/Esconder o botão ao rolar a página
         window.addEventListener('scroll', function() {
-            // Se rolar mais que 300px...
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 btnTopo.classList.add('visivel');
             } else {
@@ -93,14 +78,39 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // 2. Ação de clique (Voltar ao topo)
         btnTopo.addEventListener('click', function(event) {
-            event.preventDefault(); // Previne o comportamento padrão do link (#)
+            event.preventDefault();
             
-            // Rola suavemente para o topo
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
-    }});
+    }
+    
+    /* ------------------------------- */
+    /* 4. Interruptor Modo Escuro      */
+    /* ------------------------------- */
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (themeToggle) {
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.checked = true;
+        }
+
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+
+});

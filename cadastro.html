@@ -5,27 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Cadastro - Frente Solidária</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
 
     <header>
-        <h1>Frente Solidária</h1>
+    <h1>Frente Solidária</h1>
 
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="menu-toggle-label">
-            <span></span> <span></span>
-            <span></span>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-toggle-label"
+           aria-label="Abrir ou fechar menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav aria-label="Navegação principal">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+    </nav>
+
+    <div class="theme-switch-wrapper">
+        <span class="icon-sol" aria-hidden="true">☀️</span>
+        <input type="checkbox" 
+               id="theme-toggle" 
+               class="theme-input-hidden"
+               aria-label="Ativar modo escuro" />
+        <label class="theme-switch" for="theme-toggle" aria-hidden="true">
+            <span class="slider round"></span>
         </label>
-        
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-            </ul>
-        </nav>
-    </header>
+        <span class="icon-lua" aria-hidden="true">🌙</span>
+    </div>
+</header>
 
     <main>
         <h2>Junte-se a Nós!</h2>
@@ -137,7 +151,7 @@
         <p>&copy; 2025 Frente Solidária. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="js/main.js"></script>
-<script src="js/validacaoForm.js"></script>
+    <script src="js/main.min.js"></script>
+<script src="js/validacaoForm.min.js"></script>
 </body>
 </html>
